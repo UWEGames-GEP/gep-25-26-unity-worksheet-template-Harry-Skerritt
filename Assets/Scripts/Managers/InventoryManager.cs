@@ -8,11 +8,15 @@ public enum InventoryType
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] private Dictionary<InventoryType, Inventory> inventories = new Dictionary<InventoryType, Inventory>();
+    private Dictionary<InventoryType, Inventory> inventories = new Dictionary<InventoryType, Inventory>();
+    [SerializeField] private InventoryNotification inventoryNotification;
 
     private void Awake()
     {
+        inventoryNotification = FindObjectOfType<InventoryNotification>();
+        
         inventories[InventoryType.Player] = new PlayerInventory();
+        
     }
     
     public void AddItemToInventory(string itemName, InventoryType targetInventory)
@@ -24,6 +28,10 @@ public class InventoryManager : MonoBehaviour
         }
         
         inventory.AddItem(itemName);
+        if (targetInventory == InventoryType.Player && inventoryNotification != null)
+        {
+            inventoryNotification.ShowMessage(itemName); // Todo: pass quantity once added!
+        }
     }
 
     public void RemoveItemFromInventory(string itemName, InventoryType targetInventory)
