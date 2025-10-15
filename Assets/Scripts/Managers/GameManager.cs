@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     public GameState pauseState;
     public GameState playState;
     
+    // UI
+    [Header("UI")]
+    public GameObject pauseScreen;
+    
     // Inventory Manager
     private InventoryManager inventoryManager;
 

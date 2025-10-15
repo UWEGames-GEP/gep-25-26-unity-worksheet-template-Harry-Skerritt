@@ -8,6 +8,10 @@ public class PauseState : GameState
     public override void OnEnter()
     {
         Debug.Log("PauseState Enter");
+        if (gameManager.pauseScreen != null && !gameManager.pauseScreen.activeInHierarchy)
+        {
+            gameManager.pauseScreen.SetActive(true);
+        }
     }
     
     public override void Update()
@@ -26,5 +30,9 @@ public class PauseState : GameState
     public override void OnExit()
     {
         Debug.Log("PauseState Exit");
+        if (gameManager.pauseScreen != null && gameManager.pauseScreen.activeInHierarchy)
+        {
+            gameManager.pauseScreen.SetActive(false);
+        }
     }
 }
