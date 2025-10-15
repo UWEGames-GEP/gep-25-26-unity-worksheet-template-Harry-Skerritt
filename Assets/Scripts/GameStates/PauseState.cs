@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PauseState : GameState
 {
-    public PauseState(StateMachine stateMachine) : base(stateMachine) { }
+    public PauseState(GameManager gameManager, StateMachine stateMachine) : base(gameManager, stateMachine) { }
 
     public override void OnEnter()
     {

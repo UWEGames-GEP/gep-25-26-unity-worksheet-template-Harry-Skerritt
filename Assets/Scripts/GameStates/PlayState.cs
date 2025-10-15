@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayState : GameState
 {
-    public PlayState(StateMachine stateMachine) : base(stateMachine) { }
+    public PlayState(GameManager gameManager, StateMachine stateMachine) : base(gameManager, stateMachine) { }
     
     public override void OnEnter()
     {
@@ -16,6 +16,17 @@ public class PlayState : GameState
         {
             stateMachine.ChangeState(stateMachine.gameManager.pauseState);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            gameManager.AddItemToInventory("Generic Item");
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            gameManager.RemoveItemFromInventory("Generic Item");
+        }
+
     }
 
     public override void LateUpdate()
