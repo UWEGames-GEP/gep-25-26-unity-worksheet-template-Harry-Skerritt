@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class InventoryManager : MonoBehaviour
 {
-    public List<string> items = new List<string>();
+    [SerializeField] private List<string> items = new List<string>();
 
     
     public void AddItemToInventory(string itemName)
