@@ -9,7 +9,7 @@ public enum InventoryType
 public class InventoryManager : MonoBehaviour
 {
     private Dictionary<InventoryType, Inventory> inventories = new Dictionary<InventoryType, Inventory>();
-    [SerializeField] private InventoryNotification inventoryNotification;
+    private InventoryNotification inventoryNotification;
 
     private void Awake()
     {
