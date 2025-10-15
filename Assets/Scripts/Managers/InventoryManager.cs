@@ -1,23 +1,39 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+public enum InventoryType
+{
+    Player
+}
+
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeReference] private Inventory playerInventory;
+    [SerializeField] private Dictionary<InventoryType, Inventory> inventories = new Dictionary<InventoryType, Inventory>();
 
     private void Awake()
     {
-        playerInventory = new PlayerInventory();
+        inventories[InventoryType.Player] = new PlayerInventory();
     }
     
-    public void AddItemToInventory(string itemName)
+    public void AddItemToInventory(string itemName, InventoryType targetInventory)
     {
-        playerInventory.AddItem(itemName);
-
+        if (!inventories.TryGetValue(targetInventory, out Inventory inventory))
+        {
+            Debug.LogWarning($"Cannot add '{itemName}': No inventory found for '{targetInventory}'");
+            return;
+        }
+        
+        inventory.AddItem(itemName);
     }
 
-    public void RemoveItemFromInventory(string itemName)
+    public void RemoveItemFromInventory(string itemName, InventoryType targetInventory)
     {
-        playerInventory.RemoveItem(itemName);
+        if (!inventories.TryGetValue(targetInventory, out Inventory inventory))
+        {
+            Debug.LogWarning($"Cannot remove '{itemName}': No inventory found for '{targetInventory}'");
+            return;
+        }
+        
+        inventory.RemoveItem(itemName);
     }
 }

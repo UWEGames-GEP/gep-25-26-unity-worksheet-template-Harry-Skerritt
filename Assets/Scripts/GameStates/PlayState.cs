@@ -19,12 +19,12 @@ public class PlayState : GameState
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            gameManager.AddItemToInventory("Generic Item");
+            gameManager.AddItemToInventory("Generic Item", InventoryType.Player);
         }
         
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            gameManager.RemoveItemFromInventory("Generic Item");
+            gameManager.RemoveItemFromInventory("Generic Item", InventoryType.Player);
         }
 
     }
