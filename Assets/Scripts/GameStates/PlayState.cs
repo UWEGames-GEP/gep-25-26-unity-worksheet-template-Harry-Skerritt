@@ -4,10 +4,12 @@ using UnityEngine;
 public class PlayState : GameState
 {
     public PlayState(GameManager gameManager, StateMachine stateMachine) : base(gameManager, stateMachine) { }
-    
+
+    public override string stateID => "state_Play";
+
     public override void OnEnter()
     {
-        Debug.Log("PlayState Enter");
+        Debug.Log($"{stateID} Enter");
     }
 
     public override void Update()
@@ -17,6 +19,7 @@ public class PlayState : GameState
             stateMachine.ChangeState(stateMachine.gameManager.pauseState);
         }
 
+        /*
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             gameManager.AddItemToInventory("Generic Item", InventoryType.Player);
@@ -26,6 +29,7 @@ public class PlayState : GameState
         {
             gameManager.RemoveItemFromInventory("Generic Item", InventoryType.Player);
         }
+        */
 
     }
 
@@ -36,6 +40,6 @@ public class PlayState : GameState
 
     public override void OnExit()
     {
-        Debug.Log("PlayState Exit");
+        Debug.Log($"{stateID} Exit");
     }
 }

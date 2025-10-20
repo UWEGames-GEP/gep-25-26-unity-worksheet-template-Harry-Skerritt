@@ -11,6 +11,8 @@ public abstract class GameState
         this.gameManager = gameManager;
         this.stateMachine = stateMachine; 
     }
+
+    public abstract string stateID { get; }
     
     public abstract void OnEnter(); 
     public abstract void Update();

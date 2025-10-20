@@ -14,9 +14,10 @@ public class GameManager : MonoBehaviour
     // UI
     [Header("UI")]
     public GameObject pauseScreen;
-    
+
     // Inventory Manager
-    private InventoryManager inventoryManager;
+    [Header("Inventory Manager")]
+    [SerializeField] private InventoryManager inventoryManager;
 
     private void Awake()
     {
@@ -32,8 +33,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         stateMachine.ChangeState(playState);
-        
-        inventoryManager = FindAnyObjectByType<InventoryManager>();
+
+        if (inventoryManager == null)
+        {
+            inventoryManager = FindAnyObjectByType<InventoryManager>();
+        }
     }
 
     private void Update()
@@ -46,8 +50,15 @@ public class GameManager : MonoBehaviour
         stateMachine.LateUpdate();
     }
     
+
+    // Getters
+    public string GetCurrentState()
+    {
+        return stateMachine.GetCurrentStateID();
+    }
     
     // Inventory Manager
+/*
     public void AddItemToInventory(string itemName, InventoryType targetInventory)
     {
         inventoryManager.AddItemToInventory(itemName, targetInventory);
@@ -57,6 +68,7 @@ public class GameManager : MonoBehaviour
     {
         inventoryManager.RemoveItemFromInventory(itemName, targetInventory);
     }
+*/
     
     
 }

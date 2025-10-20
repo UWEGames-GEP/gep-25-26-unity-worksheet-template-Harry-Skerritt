@@ -6,7 +6,11 @@ public class PlayerItemPickup : MonoBehaviour
 
     private void Awake()
     {
-        inventoryManager = FindObjectOfType<InventoryManager>();
+        if (inventoryManager == null)
+        {
+            inventoryManager = FindObjectOfType<InventoryManager>();
+
+        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)

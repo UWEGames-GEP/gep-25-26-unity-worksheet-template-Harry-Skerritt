@@ -34,5 +34,11 @@ public class StateMachine
         
         currentState.OnEnter();
     }
+
+
+    public string GetCurrentStateID()
+    {
+        return currentState.stateID;
+    }
     
 }
