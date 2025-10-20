@@ -524,6 +524,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 578254021}
     m_Modifications:
+    - target: {fileID: 385020037059961418, guid: 7f2d4a72af6a548e79cfe308def5626f, type: 3}
+      propertyPath: itemName
+      value: Different Cube
+      objectReference: {fileID: 0}
     - target: {fileID: 2159912240413820884, guid: 7f2d4a72af6a548e79cfe308def5626f, type: 3}
       propertyPath: m_Name
       value: InvItem1 (2)
@@ -797,7 +801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e9ca633511e4fa09e70dbff0646769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryNotification: {fileID: 0}
+  gameManager: {fileID: 1680016826}
+  playStateName: state_Play
 --- !u!1 &1029880332
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,6 +845,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 578254021}
     m_Modifications:
+    - target: {fileID: 385020037059961418, guid: 7f2d4a72af6a548e79cfe308def5626f, type: 3}
+      propertyPath: itemName
+      value: One More Cube
+      objectReference: {fileID: 0}
     - target: {fileID: 2159912240413820884, guid: 7f2d4a72af6a548e79cfe308def5626f, type: 3}
       propertyPath: m_Name
       value: InvItem1 (3)
@@ -1608,8 +1617,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 101605424}
   - {fileID: 57304225}
+  - {fileID: 101605424}
   m_Father: {fileID: 2111336404}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1710,6 +1719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 101605423}
+  inventoryManager: {fileID: 1001782788}
 --- !u!4 &1680016827
 Transform:
   m_ObjectHideFlags: 0
@@ -1972,6 +1982,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 578254021}
     m_Modifications:
+    - target: {fileID: 385020037059961418, guid: 7f2d4a72af6a548e79cfe308def5626f, type: 3}
+      propertyPath: itemName
+      value: Another Cube
+      objectReference: {fileID: 0}
     - target: {fileID: 2159912240413820884, guid: 7f2d4a72af6a548e79cfe308def5626f, type: 3}
       propertyPath: m_Name
       value: InvItem1 (1)
@@ -2251,7 +2265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44a4f3566b9b74a52b216c478222f1b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryManager: {fileID: 0}
+  inventoryManager: {fileID: 1001782788}
 --- !u!1001 &2439908211672071442
 PrefabInstance:
   m_ObjectHideFlags: 0
