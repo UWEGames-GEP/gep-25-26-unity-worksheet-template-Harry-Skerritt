@@ -18,19 +18,7 @@ public class PlayState : GameState
         {
             stateMachine.ChangeState(stateMachine.gameManager.pauseState);
         }
-
-        /*
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            gameManager.AddItemToInventory("Generic Item", InventoryType.Player);
-        }
         
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            gameManager.RemoveItemFromInventory("Generic Item", InventoryType.Player);
-        }
-        */
-
     }
 
     public override void LateUpdate()

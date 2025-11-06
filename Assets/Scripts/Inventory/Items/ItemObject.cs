@@ -4,6 +4,7 @@ public class ItemObject : MonoBehaviour
 {
     [Header("Item Data")]
     [SerializeField] private Item item;
+    [SerializeField] private int amount = 1;
     
     [Header("Item Visuals")] 
     [SerializeField] private float rotationSpeed = 45f;
@@ -32,14 +33,11 @@ public class ItemObject : MonoBehaviour
     }
     
     // Getters
-    public Item GetItem()
-    {
-        return item;
-    }
+    public Item GetItem() => item;
 
     public string GetItemName()
     {
         return item.itemName;
     }
-
+    public int GetAmount() => amount;
 }

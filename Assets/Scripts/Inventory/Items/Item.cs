@@ -4,7 +4,5 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     public string itemName;
-    public int itemQuantity = 1;
     public int stackSize = 100;
-
 }

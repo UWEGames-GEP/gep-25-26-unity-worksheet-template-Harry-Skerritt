@@ -19,7 +19,7 @@ public class InventoryManager : MonoBehaviour
         
     }
     
-    public void AddItemToInventory(Item item, InventoryType targetInventory)
+    public void AddItemToInventory(Item item, InventoryType targetInventory, int amountToAdd = 1)
     {
         if (!inventories.TryGetValue(targetInventory, out Inventory inventory))
         {
@@ -27,14 +27,14 @@ public class InventoryManager : MonoBehaviour
             return;
         }
         
-        inventory.AddItem(item);
+        inventory.AddItem(item, amountToAdd);
         if (targetInventory == InventoryType.Player && inventoryNotification != null)
         {
-            inventoryNotification.ShowMessage(item.itemName, item.itemQuantity); // Todo: pass quantity once added!
+            inventoryNotification.ShowMessage(item.itemName, amountToAdd);
         }
     }
 
-    public void RemoveItemFromInventory(Item item, InventoryType targetInventory)
+    public void RemoveItemFromInventory(Item item, InventoryType targetInventory, int amountToRemove = 1)
     {
         if (!inventories.TryGetValue(targetInventory, out Inventory inventory))
         {
@@ -42,6 +42,6 @@ public class InventoryManager : MonoBehaviour
             return;
         }
         
-        inventory.RemoveItem(item);
+        inventory.RemoveItem(item, amountToRemove);
     }
 }
