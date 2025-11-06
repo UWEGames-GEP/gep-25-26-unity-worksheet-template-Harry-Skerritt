@@ -48,14 +48,14 @@ public class GameManager : MonoBehaviour
     
     
     // Inventory Manager
-    public void AddItemToInventory(string itemName, InventoryType targetInventory)
+    public void AddItemToInventory(Item item, InventoryType targetInventory)
     {
-        inventoryManager.AddItemToInventory(itemName, targetInventory);
+        inventoryManager.AddItemToInventory(item, targetInventory);
     }
 
-    public void RemoveItemFromInventory(string itemName, InventoryType targetInventory)
+    public void RemoveItemFromInventory(Item item, InventoryType targetInventory)
     {
-        inventoryManager.RemoveItemFromInventory(itemName, targetInventory);
+        inventoryManager.RemoveItemFromInventory(item, targetInventory);
     }
     
     

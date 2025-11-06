@@ -4,9 +4,9 @@ public class PlayerInventory : Inventory
 {
     public override string OwnerName => "Player";
     
-    public override void AddItem(string itemName)
+    public override void AddItem(Item item)
     {
-        base.AddItem(itemName);
+        base.AddItem(item);
         
         Debug.Log("Player inventory updated!");
     }

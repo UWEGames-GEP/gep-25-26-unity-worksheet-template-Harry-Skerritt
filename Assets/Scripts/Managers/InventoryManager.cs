@@ -19,29 +19,29 @@ public class InventoryManager : MonoBehaviour
         
     }
     
-    public void AddItemToInventory(string itemName, InventoryType targetInventory)
+    public void AddItemToInventory(Item item, InventoryType targetInventory)
     {
         if (!inventories.TryGetValue(targetInventory, out Inventory inventory))
         {
-            Debug.LogWarning($"Cannot add '{itemName}': No inventory found for '{targetInventory}'");
+            Debug.LogWarning($"Cannot add '{item.itemName}': No inventory found for '{targetInventory}'");
             return;
         }
         
-        inventory.AddItem(itemName);
+        inventory.AddItem(item);
         if (targetInventory == InventoryType.Player && inventoryNotification != null)
         {
-            inventoryNotification.ShowMessage(itemName); // Todo: pass quantity once added!
+            inventoryNotification.ShowMessage(item.itemName, item.itemQuantity); // Todo: pass quantity once added!
         }
     }
 
-    public void RemoveItemFromInventory(string itemName, InventoryType targetInventory)
+    public void RemoveItemFromInventory(Item item, InventoryType targetInventory)
     {
         if (!inventories.TryGetValue(targetInventory, out Inventory inventory))
         {
-            Debug.LogWarning($"Cannot remove '{itemName}': No inventory found for '{targetInventory}'");
+            Debug.LogWarning($"Cannot remove '{item.itemName}': No inventory found for '{targetInventory}'");
             return;
         }
         
-        inventory.RemoveItem(itemName);
+        inventory.RemoveItem(item);
     }
 }

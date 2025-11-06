@@ -3,9 +3,8 @@ using UnityEngine;
 public class ItemObject : MonoBehaviour
 {
     [Header("Item Data")]
-    [SerializeField] private string itemName;
-    public string ItemName => itemName;
-
+    [SerializeField] private Item item;
+    
     [Header("Item Visuals")] 
     [SerializeField] private float rotationSpeed = 45f;
     [SerializeField] private float bobHeight = 0.25f;
@@ -17,7 +16,7 @@ public class ItemObject : MonoBehaviour
         startPos = transform.position;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         BobAndRotateItem();
     }
@@ -30,6 +29,17 @@ public class ItemObject : MonoBehaviour
         // Bob Item
         float newY = startPos.y + Mathf.Sin(Time.time * bobSpeed) * bobHeight;
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+    }
+    
+    // Getters
+    public Item GetItem()
+    {
+        return item;
+    }
+
+    public string GetItemName()
+    {
+        return item.itemName;
     }
 
 }

@@ -17,6 +17,7 @@ public class PlayState : GameState
             stateMachine.ChangeState(stateMachine.gameManager.pauseState);
         }
 
+        /*
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             gameManager.AddItemToInventory("Generic Item", InventoryType.Player);
@@ -26,6 +27,7 @@ public class PlayState : GameState
         {
             gameManager.RemoveItemFromInventory("Generic Item", InventoryType.Player);
         }
+        */
 
     }
 

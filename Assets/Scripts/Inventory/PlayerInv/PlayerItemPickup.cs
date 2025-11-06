@@ -15,8 +15,8 @@ public class PlayerItemPickup : MonoBehaviour
 
         if (collisionItem != null)
         {
-            Debug.Log($"Collied with item {collisionItem.ItemName}");
-            inventoryManager.AddItemToInventory(collisionItem.ItemName, InventoryType.Player);
+            Debug.Log($"Collied with item {collisionItem.GetItemName()}");
+            inventoryManager.AddItemToInventory(collisionItem.GetItem(), InventoryType.Player);
             Destroy(collisionItem.gameObject);
         }
     }
