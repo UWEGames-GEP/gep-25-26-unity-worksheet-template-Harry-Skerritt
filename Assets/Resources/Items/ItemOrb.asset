@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9579a2fa19d84c8bb68298fd9d575706, type: 3}
   m_Name: ItemOrb
   m_EditorClassIdentifier: 
-  itemName: ItemOrb
-  itemQuantity: 1
+  itemName: Item Orb
+  stackSize: 100

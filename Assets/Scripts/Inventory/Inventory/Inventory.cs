@@ -53,4 +53,6 @@ public abstract class Inventory
     
     public abstract string OwnerName { get; }
     
+    public List<InventorySlot> GetItems => items;
+    
 }

@@ -32,6 +32,8 @@ public class InventoryManager : MonoBehaviour
         {
             inventoryNotification.ShowMessage(item.itemName, amountToAdd);
         }
+        
+        FindAnyObjectByType<DebugInv>().UpdateUI(inventory);
     }
 
     public void RemoveItemFromInventory(Item item, InventoryType targetInventory, int amountToRemove = 1)
@@ -43,5 +45,6 @@ public class InventoryManager : MonoBehaviour
         }
         
         inventory.RemoveItem(item, amountToRemove);
+        FindAnyObjectByType<DebugInv>().UpdateUI(inventory);
     }
 }
