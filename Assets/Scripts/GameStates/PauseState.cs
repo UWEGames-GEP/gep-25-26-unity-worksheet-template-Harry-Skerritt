@@ -5,9 +5,13 @@ public class PauseState : GameState
 {
     public PauseState(GameManager gameManager, StateMachine stateMachine) : base(gameManager, stateMachine) { }
 
+    public override string stateID => "state_Paused";
+
     public override void OnEnter()
     {
-        Debug.Log("PauseState Enter");
+        Debug.Log($"{stateID} Enter");
+
+        // UI
         if (gameManager.pauseScreen != null && !gameManager.pauseScreen.activeInHierarchy)
         {
             gameManager.pauseScreen.SetActive(true);
@@ -29,7 +33,9 @@ public class PauseState : GameState
 
     public override void OnExit()
     {
-        Debug.Log("PauseState Exit");
+        Debug.Log($"{stateID} Exit");
+
+        // UI
         if (gameManager.pauseScreen != null && gameManager.pauseScreen.activeInHierarchy)
         {
             gameManager.pauseScreen.SetActive(false);
