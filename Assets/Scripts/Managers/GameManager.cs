@@ -10,10 +10,12 @@ public class GameManager : MonoBehaviour
     // Game States
     public GameState pauseState;
     public GameState playState;
+    public GameState inventoryState;
     
     // UI
     [Header("UI")]
     public GameObject pauseScreen;
+    public InventoryUI inventoryUI;
     
     // Inventory Manager
     private InventoryManager inventoryManager;
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour
         {
             pauseState = new PauseState(this, stateMachine);
             playState = new PlayState(this, stateMachine);
+            inventoryState = new InventoryState(this, stateMachine);
         }
     }
 
@@ -34,6 +37,11 @@ public class GameManager : MonoBehaviour
         stateMachine.ChangeState(playState);
         
         inventoryManager = FindAnyObjectByType<InventoryManager>();
+
+        if(inventoryUI == null)
+        {
+            inventoryUI = FindAnyObjectByType<InventoryUI>();
+        }
     }
 
     private void Update()
@@ -56,6 +64,16 @@ public class GameManager : MonoBehaviour
     public void RemoveItemFromInventory(Item item, InventoryType targetInventory)
     {
         inventoryManager.RemoveItemFromInventory(item, targetInventory);
+    }
+
+    public void ToggleInventory()
+    {
+        inventoryUI.ToggleUI();
+    }
+
+    public void SetInventoryActive(bool active)
+    {
+        inventoryUI.SetInventoryActive(active);
     }
     
     

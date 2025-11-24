@@ -22,7 +22,7 @@ public class PauseState : GameState
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            stateMachine.ChangeState(stateMachine.gameManager.playState);
+            stateMachine.ChangeState(gameManager.playState);
         }
     }
 

@@ -4,14 +4,18 @@ using TMPro;
 using System.Text;
 
 
-public class DebugInv : MonoBehaviour
+public class InventoryUI : MonoBehaviour
 {
+    [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private TextMeshProUGUI inventoryText;
 
     private void Start()
     {
-        if(inventoryText != null)
+        if (inventoryText != null)
             inventoryText.text = "";
+
+        if (inventoryPanel != null)
+            inventoryPanel.SetActive(false);
     }
 
     public void UpdateUI(Inventory inventory)
@@ -27,7 +31,17 @@ public class DebugInv : MonoBehaviour
                 sb.AppendLine($"{slot.quantity}x {slot.item.itemName}");
             }
         }
-        
+
         inventoryText.text = sb.ToString();
+    }
+
+    public void ToggleUI()
+    {
+        inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+    }
+
+    public void SetInventoryActive(bool active)
+    {
+        inventoryPanel.SetActive(active);
     }
 }

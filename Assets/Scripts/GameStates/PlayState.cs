@@ -14,9 +14,14 @@ public class PlayState : GameState
 
     public override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            stateMachine.ChangeState(stateMachine.gameManager.pauseState);
+            stateMachine.ChangeState(gameManager.pauseState);
+        }
+
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            stateMachine.ChangeState(gameManager.inventoryState);
         }
         
     }

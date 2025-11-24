@@ -13,7 +13,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
-        inventoryNotification = FindObjectOfType<InventoryNotification>();
+        inventoryNotification = FindFirstObjectByType<InventoryNotification>();
         
         inventories[InventoryType.Player] = new PlayerInventory();
         
@@ -33,7 +33,7 @@ public class InventoryManager : MonoBehaviour
             inventoryNotification.ShowMessage(item.itemName, amountToAdd);
         }
         
-        FindAnyObjectByType<DebugInv>().UpdateUI(inventory);
+        FindAnyObjectByType<InventoryUI>().UpdateUI(inventory);
     }
 
     public void RemoveItemFromInventory(Item item, InventoryType targetInventory, int amountToRemove = 1)
@@ -45,6 +45,6 @@ public class InventoryManager : MonoBehaviour
         }
         
         inventory.RemoveItem(item, amountToRemove);
-        FindAnyObjectByType<DebugInv>().UpdateUI(inventory);
+        FindAnyObjectByType<InventoryUI>().UpdateUI(inventory);
     }
 }
