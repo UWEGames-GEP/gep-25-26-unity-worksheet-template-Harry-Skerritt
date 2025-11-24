@@ -9,7 +9,7 @@ public class PlayState : GameState
     
     public override void OnEnter()
     {
-        Debug.Log($"{stateID} Enter");
+        Debug.Log($"{stateID}: Enter");
     }
 
     public override void Update()
@@ -37,6 +37,6 @@ public class PlayState : GameState
 
     public override void OnExit()
     {
-        Debug.Log($"{stateID} Exit");
+        Debug.Log($"{stateID}: Exit");
     }
 }

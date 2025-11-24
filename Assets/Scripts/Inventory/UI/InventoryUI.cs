@@ -6,14 +6,22 @@ using System.Text;
 
 public class InventoryUI : MonoBehaviour
 {
+    [Header("UI Elements")]
     [SerializeField] private GameObject inventoryPanel;
-    [SerializeField] private TextMeshProUGUI inventoryText;
+    [SerializeField] private TextMeshProUGUI inventoryHeader;
+    [SerializeField] private GameObject slotHolder;
+    
+    [Header("Instanceables")]
+    [SerializeField] private GameObject inventorySlotPrefab;
 
     private void Start()
     {
-        if (inventoryText != null)
-            inventoryText.text = "";
-
+        if (inventoryPanel == null || inventoryHeader == null || slotHolder == null || inventorySlotPrefab == null)
+        {
+            Debug.LogError("One or more of the needed objects are not present in the inspector");
+            return;
+        }
+        
         if (inventoryPanel != null)
             inventoryPanel.SetActive(false);
     }
@@ -22,17 +30,37 @@ public class InventoryUI : MonoBehaviour
     {
         if (inventory == null) return;
 
-        StringBuilder sb = new StringBuilder();
-
+        // Set Header
+        if (inventoryHeader != null)
+        {
+            inventoryHeader.text = $"{inventory.OwnerName} Inventory";
+        }
+        
+        // Clear Slots
+        foreach (Transform child in slotHolder.transform)
+        {
+            Debug.Log(child.name);
+            Destroy(child.gameObject);
+        }
+        
+        // Create new slots
         foreach (var slot in inventory.GetItems)
         {
             if (slot.item != null && slot.quantity > 0)
             {
-                sb.AppendLine($"{slot.quantity}x {slot.item.itemName}");
+                GameObject slotGo = Instantiate(inventorySlotPrefab, slotHolder.transform);
+                slotGo.name = "Slot" + slot.item.name;
+                InventorySlotUI slotUI = slotGo.GetComponent<InventorySlotUI>();
+                if (slotUI == null)
+                {
+                    Debug.LogError("InventoryUI: slot prefab doesn't have InventorySlotUI script");
+                }
+                
+                slotUI.SetImage(slot.item.icon);
+                slotUI.SetName(slot.item.name);
+                slotUI.SetQuantity(slot.quantity);
             }
         }
-
-        inventoryText.text = sb.ToString();
     }
 
     public void ToggleUI()

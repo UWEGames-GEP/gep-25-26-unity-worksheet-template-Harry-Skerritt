@@ -40,7 +40,7 @@ public static class IconGenerator
       EditorUtility.DisplayProgressBar("Generating Icon", "Saving...", 0.6f);
       SaveIcon(prefab.name, preview);
       
-      Debug.Log($"Icon generated for: {prefab.name} at {ICON_OUTPUT_DIR}/{prefab.name}.png");
+      Debug.Log($"IconGenerator: Icon generated for: {prefab.name} at {ICON_OUTPUT_DIR}/{prefab.name}.png");
    }
 
    private static void SaveIcon(string iconName, Texture2D icon)

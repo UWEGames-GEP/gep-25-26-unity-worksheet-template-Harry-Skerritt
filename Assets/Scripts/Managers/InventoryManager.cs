@@ -23,7 +23,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (!inventories.TryGetValue(targetInventory, out Inventory inventory))
         {
-            Debug.LogWarning($"Cannot add '{item.itemName}': No inventory found for '{targetInventory}'");
+            Debug.LogWarning($"InventoryManager: Cannot add '{item.itemName}': No inventory found for '{targetInventory}'");
             return;
         }
         
@@ -40,7 +40,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (!inventories.TryGetValue(targetInventory, out Inventory inventory))
         {
-            Debug.LogWarning($"Cannot remove '{item.itemName}': No inventory found for '{targetInventory}'");
+            Debug.LogWarning($"InventoryManager: Cannot remove '{item.itemName}': No inventory found for '{targetInventory}'");
             return;
         }
         

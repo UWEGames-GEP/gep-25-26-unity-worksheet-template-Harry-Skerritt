@@ -10,7 +10,7 @@ public class InventoryState : GameState
 
     public override void OnEnter()
     {
-        Debug.Log($"{stateID} Enter");
+        Debug.Log($"{stateID}: Enter");
 
         // UI
         gameManager.SetInventoryActive(true);
@@ -42,7 +42,7 @@ public class InventoryState : GameState
 
     public override void OnExit()
     {
-        Debug.Log($"{stateID} Exit");
+        Debug.Log($"{stateID}: Exit");
         gameManager.SetInventoryActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

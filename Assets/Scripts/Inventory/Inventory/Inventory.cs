@@ -23,13 +23,13 @@ public abstract class Inventory
                 items.Add(new InventorySlot(item, toAdd));
             }
             
-            Debug.Log($"Added {amountToAdd}x '{item.itemName}' to {GetType().Name}!");
+            Debug.Log($"Inventory: Added {amountToAdd}x '{item.itemName}' to {GetType().Name}!");
         }
         else
         {
             // Slot doesnt exist
             items.Add(new InventorySlot(item, amountToAdd));
-            Debug.Log($"Added new slot of {amountToAdd}x '{item.itemName}' to {GetType().Name}!");
+            Debug.Log($"Inventory: Added new slot of {amountToAdd}x '{item.itemName}' to {GetType().Name}!");
         }
     }
 
@@ -39,12 +39,12 @@ public abstract class Inventory
 
         if (existingSlot == null)
         {
-            Debug.LogWarning($"Could not find '{item.itemName}' in {GetType().Name}!");
+            Debug.LogWarning($"Inventory: Could not find '{item.itemName}' in {GetType().Name}!");
             return;
         }
         
         existingSlot.quantity -= amountToRemove;
-        Debug.Log($"Removed {amountToRemove}x '{item.itemName}' from {GetType().Name}!");
+        Debug.Log($"Inventory: Removed {amountToRemove}x '{item.itemName}' from {GetType().Name}!");
         if (existingSlot.quantity <= 0)
         {
             items.Remove(existingSlot);

@@ -9,7 +9,7 @@ public class PauseState : GameState
 
     public override void OnEnter()
     {
-        Debug.Log($"{stateID} Enter");
+        Debug.Log($"{stateID}: Enter");
 
         // UI
         if (gameManager.pauseScreen != null && !gameManager.pauseScreen.activeInHierarchy)
@@ -39,7 +39,7 @@ public class PauseState : GameState
 
     public override void OnExit()
     {
-        Debug.Log($"{stateID} Exit");
+        Debug.Log($"{stateID}: Exit");
 
         // UI
         if (gameManager.pauseScreen != null && gameManager.pauseScreen.activeInHierarchy)
