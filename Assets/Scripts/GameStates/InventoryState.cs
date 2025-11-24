@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class InventoryState : GameState
 {
@@ -15,18 +17,21 @@ public class InventoryState : GameState
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+
     }
 
     public override void Update()
     {
-        // Handle changing state back
-        if(Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Escape))
+        // Handle mouse in the inventory
+        
+    }
+
+    public override void TransitionEvent(TransitionParam param)
+    {
+        if(param == TransitionParam.PauseTrigger || param == TransitionParam.InventoryTrigger)
         {
             stateMachine.ChangeState(gameManager.playState);
         }
-
-        // Handle mouse in the inventory
-
     }
 
     public override void LateUpdate()

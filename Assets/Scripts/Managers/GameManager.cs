@@ -90,5 +90,8 @@ public class GameManager : MonoBehaviour
         playerController.LockCameraPosition = locked;
     }
 
-    
+    public StateMachine GetStateMachine()
+    {
+        return stateMachine;
+    }
 }

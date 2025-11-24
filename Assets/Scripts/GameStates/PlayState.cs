@@ -6,7 +6,7 @@ public class PlayState : GameState
     public PlayState(GameManager gameManager, StateMachine stateMachine) : base(gameManager, stateMachine) { }
 
     public override string stateID => "state_Play";
-
+    
     public override void OnEnter()
     {
         Debug.Log($"{stateID} Enter");
@@ -14,16 +14,19 @@ public class PlayState : GameState
 
     public override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+    }
+
+    public override void TransitionEvent(TransitionParam param)
+    {
+        if(param == TransitionParam.PauseTrigger)
         {
             stateMachine.ChangeState(gameManager.pauseState);
         }
-
-        if(Input.GetKeyDown(KeyCode.I))
+        else if (param == TransitionParam.InventoryTrigger)
         {
             stateMachine.ChangeState(gameManager.inventoryState);
         }
-        
     }
 
     public override void LateUpdate()

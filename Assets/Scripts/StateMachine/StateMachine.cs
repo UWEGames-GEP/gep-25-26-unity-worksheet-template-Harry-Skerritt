@@ -1,16 +1,25 @@
 using UnityEngine;
+using UnityEngine.Events;
 
+public enum TransitionParam { PauseTrigger, InventoryTrigger };
 
 public class StateMachine
-{
-    
+{   
     public GameManager gameManager;
+
+    public UnityEvent<TransitionParam> transitionEvent;
     
     private GameState currentState;
 
     public StateMachine(GameManager gameManager)
     {
         this.gameManager = gameManager;
+
+        // Event handler
+        if(transitionEvent == null)
+            transitionEvent = new UnityEvent<TransitionParam>();
+
+        transitionEvent.AddListener(TransitionEvent);
     }
     
     public void Update()
@@ -33,6 +42,12 @@ public class StateMachine
         currentState = state;
         
         currentState.OnEnter();
+    }
+
+    public void TransitionEvent(TransitionParam param)
+    {
+        if(currentState != null)
+            currentState.TransitionEvent(param);
     }
 
 

@@ -8,15 +8,16 @@ public class PlayerController : ThirdPersonController
     {
         if(value.isPressed)
         {
-            Debug.Log("Pause Triggered");
+            FindAnyObjectByType<GameManager>().GetStateMachine().transitionEvent.Invoke(TransitionParam.PauseTrigger);
         }
     }
 
     private void OnInventory(InputValue value)
     {
+        
         if (value.isPressed)
         {
-            Debug.Log("Inventory Triggered");
+            FindAnyObjectByType<GameManager>().GetStateMachine().transitionEvent.Invoke(TransitionParam.InventoryTrigger);
         }
     }
 

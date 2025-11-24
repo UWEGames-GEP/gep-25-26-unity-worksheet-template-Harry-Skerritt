@@ -20,7 +20,12 @@ public class PauseState : GameState
     
     public override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+    }
+
+    public override void TransitionEvent(TransitionParam param)
+    {
+        if(param == TransitionParam.PauseTrigger)
         {
             stateMachine.ChangeState(gameManager.playState);
         }

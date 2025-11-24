@@ -17,5 +17,6 @@ public abstract class GameState
     public abstract void OnEnter(); 
     public abstract void Update();
     public abstract void LateUpdate();
+    public abstract void TransitionEvent(TransitionParam param);
     public abstract void OnExit();
 }
