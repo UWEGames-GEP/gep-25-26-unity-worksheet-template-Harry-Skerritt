@@ -6,4 +6,5 @@ public class Item : ScriptableObject
     public string itemName;
     public int stackSize = 100;
     public Sprite icon;
+    public GameObject prefab;
 }

@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: Generic Item
   stackSize: 100
   icon: {fileID: 21300000, guid: ba7676806a2954c37869873686b369ea, type: 3}
+  prefab: {fileID: 2159912240413820884, guid: 7f2d4a72af6a548e79cfe308def5626f, type: 3}

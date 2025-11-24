@@ -10,6 +10,10 @@ public class InventorySlotUI : MonoBehaviour
     [SerializeField] private Image slotImage;
     [SerializeField] private TextMeshProUGUI itemName;
     [SerializeField] private TextMeshProUGUI itemQuantity;
+    [SerializeField] private Button removeButton;
+    
+    private Item item;
+    private int quantity;
 
     private void Start()
     {
@@ -27,26 +31,40 @@ public class InventorySlotUI : MonoBehaviour
         {
             Debug.LogError("InventorySlotUI: Item quantity is null");
         }
+
+        if (removeButton == null)
+        {
+            Debug.LogError("InventorySlotUI: Remove button is null");
+        }
+        else
+        {
+            removeButton.onClick.AddListener(RemoveItem);
+        }
+    }
+    
+    public void RemoveItem()
+    {
+        InventoryManager inventoryManager = FindAnyObjectByType<InventoryManager>();
+        inventoryManager.RemoveItemFromInventory(item, InventoryType.Player, 1);
+        quantity--;
+        if (quantity == 0)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        { 
+            itemQuantity.text = $"x{(quantity).ToString()}";
+        }
+        
     }
 
-    public void SetImage(Sprite sprite)
+    public void SetItem(Item item, int quantity)
     {
-        if (slotImage == null) return;
-        
-        slotImage.sprite = sprite;
-    }
-
-    public void SetName(string name)
-    {
-        if (itemName == null) return;
-        
-        itemName.text = name;
-    }
-
-    public void SetQuantity(int quantity)
-    {
-        if (itemQuantity == null) return;
-        
+        this.item = item;
+        slotImage.sprite = item.icon;
+        itemName.text = item.name;
+        this.quantity = quantity;
         itemQuantity.text = $"x{quantity.ToString()}";
     }
+    
 }

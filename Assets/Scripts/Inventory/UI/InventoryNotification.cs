@@ -12,13 +12,21 @@ public class InventoryNotification : MonoBehaviour
     
     private List<GameObject> activeTexts = new List<GameObject>();
 
-    public void ShowMessage(string itemName, int quantity = 1)
+    public void ShowMessage(string itemName, int quantity = 1, bool added = true)
     {
         GameObject go = Instantiate(textPrefab, transform);
         go.SetActive(true);
         
         TMP_Text text = go.GetComponent<TMP_Text>();
-        text.text = $"Added {quantity}x {itemName}";
+        if (added)
+        {
+            text.text = $"Added {quantity}x {itemName}";
+        }
+        else
+        {
+            text.text = $"Removed {quantity}x {itemName}";
+        }
+        
         
         activeTexts.Add(go);
         StartCoroutine(RemoveMessage(go, textLifetime, fadeDuration));

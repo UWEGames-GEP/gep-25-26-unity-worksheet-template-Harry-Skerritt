@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - InventoryItem
+  - InventoryItemSpawn
   layers:
   - Default
   - TransparentFX

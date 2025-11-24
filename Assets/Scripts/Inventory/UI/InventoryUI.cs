@@ -56,9 +56,7 @@ public class InventoryUI : MonoBehaviour
                     Debug.LogError("InventoryUI: slot prefab doesn't have InventorySlotUI script");
                 }
                 
-                slotUI.SetImage(slot.item.icon);
-                slotUI.SetName(slot.item.name);
-                slotUI.SetQuantity(slot.quantity);
+                slotUI.SetItem(slot.item, slot.quantity);
             }
         }
     }
