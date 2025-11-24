@@ -8,7 +8,7 @@ public class PlayerItemPickup : MonoBehaviour
     {
         if (inventoryManager == null)
         {
-            inventoryManager = FindObjectOfType<InventoryManager>();
+            inventoryManager = FindFirstObjectByType<InventoryManager>();
 
         }
     }

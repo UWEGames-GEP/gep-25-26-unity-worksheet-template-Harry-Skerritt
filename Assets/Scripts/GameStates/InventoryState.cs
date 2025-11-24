@@ -32,6 +32,7 @@ public class InventoryState : GameState
     public override void LateUpdate()
     {
         Time.timeScale = 0f;
+        gameManager.LockPlayerCamera(true);
     }
 
     public override void OnExit()

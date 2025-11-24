@@ -1,3 +1,4 @@
+using StarterAssets;
 using System;
 using UnityEngine;
 
@@ -20,6 +21,9 @@ public class GameManager : MonoBehaviour
     // Inventory Manager
     private InventoryManager inventoryManager;
 
+    // Player Controller
+    private ThirdPersonController playerController;
+
     private void Awake()
     {
         stateMachine = new StateMachine(this);
@@ -37,6 +41,8 @@ public class GameManager : MonoBehaviour
         stateMachine.ChangeState(playState);
         
         inventoryManager = FindAnyObjectByType<InventoryManager>();
+
+        playerController = FindAnyObjectByType<ThirdPersonController>();
 
         if(inventoryUI == null)
         {
@@ -66,6 +72,7 @@ public class GameManager : MonoBehaviour
         inventoryManager.RemoveItemFromInventory(item, targetInventory);
     }
 
+    // Inventory UI
     public void ToggleInventory()
     {
         inventoryUI.ToggleUI();
@@ -75,6 +82,13 @@ public class GameManager : MonoBehaviour
     {
         inventoryUI.SetInventoryActive(active);
     }
+
     
+    // Player Controller
+    public void LockPlayerCamera(bool locked)
+    {
+        playerController.LockCameraPosition = locked;
+    }
+
     
 }

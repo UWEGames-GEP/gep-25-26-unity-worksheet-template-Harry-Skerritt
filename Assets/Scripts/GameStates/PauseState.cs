@@ -20,7 +20,7 @@ public class PauseState : GameState
     
     public override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             stateMachine.ChangeState(gameManager.playState);
         }
@@ -29,6 +29,7 @@ public class PauseState : GameState
     public override void LateUpdate()
     {
         Time.timeScale = 0f;
+        gameManager.LockPlayerCamera(true);
     }
 
     public override void OnExit()

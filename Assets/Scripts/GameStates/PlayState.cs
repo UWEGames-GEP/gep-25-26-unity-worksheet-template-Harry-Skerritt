@@ -29,6 +29,7 @@ public class PlayState : GameState
     public override void LateUpdate()
     {
         Time.timeScale = 1f;
+        gameManager.LockPlayerCamera(false);
     }
 
     public override void OnExit()
