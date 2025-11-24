@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: GenericItem
   m_EditorClassIdentifier: 
   itemName: Generic Item
-  itemQuantity: 1
+  stackSize: 100
+  icon: {fileID: 21300000, guid: ba7676806a2954c37869873686b369ea, type: 3}

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Item Orb
   stackSize: 100
+  icon: {fileID: 21300000, guid: 0f3b27fe5f28c4089b63f0eb945d6ee8, type: 3}
